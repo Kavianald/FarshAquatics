@@ -295,3 +295,40 @@ a:focus{outline:2px solid var(--ring);outline-offset:2px}
   font-size: 1.1rem;
 }
 
+/* Dina portrait */
+.about-photo{
+  display:block;
+  margin:0;
+}
+.about-photo img{
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:20px;                            /* soft, premium radius */
+  box-shadow: 0 16px 40px rgba(10,25,45,.15);    /* elegant depth */
+  border:1px solid rgba(15,79,120,.10);          /* subtle frame */
+  background: linear-gradient(180deg,#fff,#f7fbff);
+  object-fit: cover;
+  aspect-ratio: 4 / 5;                           /* consistent silhouette */
+  object-position: center top;
+}
+
+/* tighten layout relationships on larger screens */
+@media (min-width: 980px){
+  .about-panel{
+    align-content:start;
+  }
+  .about-photo{
+    margin-bottom: 18px;
+  }
+}
+
+/* mobile rhythm */
+@media (max-width: 520px){
+  .about-photo img{
+    border-radius:18px;
+    box-shadow: 0 10px 26px rgba(10,25,45,.14);
+  }
+}
+
+
