@@ -331,4 +331,30 @@ a:focus{outline:2px solid var(--ring);outline-offset:2px}
   }
 }
 
+/* --- Desktop-only layout refinements for About --- */
+@media (min-width: 980px){
+  /* Put photo column on the left, text on the right */
+  .grid-about { align-items: start; column-gap: 36px; row-gap: 24px; }
+  .about-panel { order: 1; }   /* left column (photo + stats) */
+  .about-block { order: 2; }   /* right column (text) */
+
+  /* Stack photo above stats in the left column */
+  .about-panel { display: grid; grid-template-rows: auto auto; gap: 18px; }
+
+  /* Give the text block a subtle panel so the photo doesn't feel isolated */
+  .about-block {
+    background: rgba(209, 232, 246, .35);
+    border: 1px solid rgba(15,79,120,.08);
+    border-radius: 16px;
+    padding: 18px 20px 14px;
+  }
+
+  /* Tighter rhythm for the CTA */
+  .about-cta { margin-top: 16px; }
+}
+
+/* Make the portrait a touch taller on wide screens so it visually balances the text height */
+@media (min-width: 1200px){
+  .about-photo img { aspect-ratio: 3 / 4; object-position: center top; }
+}
 
