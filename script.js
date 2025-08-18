@@ -1,65 +1,85 @@
-document.addEventListener('DOMContentLoaded', function() {
-  const nav = document.querySelector('.navbar');
-  const navToggle = document.querySelector('.nav-toggle');
-  const navLinks = document.querySelectorAll('.nav-links a');
-  const contactTriggers = document.querySelectorAll('.contact-link, .contact-button');
-  const modal = document.getElementById('contact-modal');
-  const modalClose = document.querySelector('.modal-close');
+// Utility: select
+const $ = (sel, ctx=document) => ctx.querySelector(sel);
+const $$ = (sel, ctx=document) => Array.from(ctx.querySelectorAll(sel));
 
-  // Toggle mobile navigation menu
-  navToggle.addEventListener('click', function() {
-    nav.classList.toggle('nav-open');
-    if (nav.classList.contains('nav-open')) {
-      document.body.classList.add('nav-open');
-    } else {
-      document.body.classList.remove('nav-open');
+// ===== Mobile Nav (off-canvas) =====
+const nav = $('.nav');
+const toggle = $('.nav-toggle');
+const menu = $('#navMenu');
+const scrim = $('.nav-scrim');
+
+const setNav = (open) => {
+  nav.classList.toggle('open', open);
+  toggle.setAttribute('aria-expanded', String(open));
+  document.body.style.overflow = open ? 'hidden' : '';
+};
+toggle?.addEventListener('click', () => setNav(!nav.classList.contains('open')));
+scrim?.addEventListener('click', () => setNav(false));
+$$('[data-close]', menu).forEach(a => a.addEventListener('click', () => setNav(false)));
+
+// ===== Smooth anchor offset (account for sticky header) =====
+$$('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', (e) => {
+    const id = link.getAttribute('href');
+    if (!id || id === '#' || id === '#!') return;
+    const target = document.querySelector(id);
+    if (!target) return;
+    e.preventDefault();
+    const headerH = $('.site-header').offsetHeight || 72;
+    const y = target.getBoundingClientRect().top + window.scrollY - (headerH + 10);
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  });
+});
+
+// ===== Scroll reveal =====
+const io = new IntersectionObserver((entries, obs)=>{
+  entries.forEach(entry=>{
+    if (entry.isIntersecting){
+      entry.target.classList.add('is-visible');
+      obs.unobserve(entry.target);
     }
   });
+},{ threshold: 0.12 });
 
-  // Close nav menu when any link is clicked (useful for mobile)
-  navLinks.forEach(function(link) {
-    link.addEventListener('click', function() {
-      nav.classList.remove('nav-open');
-      document.body.classList.remove('nav-open');
+$$('.reveal').forEach(el => io.observe(el));
+
+// ===== Footer year =====
+$('#year').textContent = new Date().getFullYear();
+
+// ===== Contact Modal =====
+const modal = $('#contactModal');
+const openBtns = $$('.contact-open');
+const closeBtn = $('.modal-close', modal);
+const scrimModal = $('.modal-scrim', modal);
+
+function openModal(){
+  modal.setAttribute('aria-hidden','false');
+  // Lock scroll
+  document.body.style.overflow = 'hidden';
+  // focus close
+  closeBtn?.focus();
+}
+function closeModal(){
+  modal.setAttribute('aria-hidden','true');
+  document.body.style.overflow = '';
+}
+
+openBtns.forEach(b=> b.addEventListener('click', (e)=>{ e.preventDefault(); openModal(); }));
+closeBtn?.addEventListener('click', closeModal);
+scrimModal?.addEventListener('click', closeModal);
+document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeModal(); });
+
+// Copy to clipboard
+$$('.copy', modal).forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const sel = btn.getAttribute('data-copy');
+    const el = $(sel);
+    if (!el) return;
+    const text = el.textContent.trim();
+    navigator.clipboard?.writeText(text).then(()=>{
+      const original = btn.textContent;
+      btn.textContent = 'Copied';
+      setTimeout(()=> btn.textContent = original, 1100);
     });
-  });
-
-  // Open contact modal when any contact trigger is clicked
-  contactTriggers.forEach(function(element) {
-    element.addEventListener('click', function(e) {
-      e.preventDefault();
-      modal.classList.add('show');
-      document.body.style.overflow = 'hidden';  // disable background scroll
-    });
-  });
-
-  // Close modal when "x" button is clicked
-  modalClose.addEventListener('click', function() {
-    modal.classList.remove('show');
-    document.body.style.overflow = '';
-  });
-
-  // Close modal if clicking outside the modal content
-  modal.addEventListener('click', function(e) {
-    if (e.target === modal) {
-      modal.classList.remove('show');
-      document.body.style.overflow = '';
-    }
-  });
-
-  // Reveal sections on scroll (fade-in effect)
-  const sections = document.querySelectorAll('.section');
-  const observerOptions = { threshold: 0.1 };
-  const sectionObserver = new IntersectionObserver(function(entries, observer) {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-
-  sections.forEach(section => {
-    sectionObserver.observe(section);
   });
 });
