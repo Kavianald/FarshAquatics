@@ -276,3 +276,22 @@ a:focus{outline:2px solid var(--ring);outline-offset:2px}
   .reveal{opacity:1;transform:none}
   .nav-menu, .modal-card{transition:none}
 }
+
+/* Logo sizing */
+.brand-logo {
+  height: 32px;
+  width: auto;
+  display: block;
+}
+
+/* Center contact values when no copy buttons */
+.contact-item.centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.contact-item.centered .contact-value {
+  font-size: 1.1rem;
+}
+
