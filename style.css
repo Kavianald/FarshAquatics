@@ -279,7 +279,7 @@ a:focus{outline:2px solid var(--ring);outline-offset:2px}
 
 /* Logo sizing */
 .brand-logo {
-  height: 64px;
+  height: 52px;
   width: auto;
   display: block;
 }
