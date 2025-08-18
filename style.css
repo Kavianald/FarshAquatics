@@ -357,3 +357,52 @@ a:focus{outline:2px solid var(--ring);outline-offset:2px}
 @media (min-width: 1200px){
   .about-photo img { aspect-ratio: 3 / 4; object-position: center top; }
 }
+
+/* ==== ABOUT SECTION — reference layout (desktop only) ==== */
+@media (min-width: 980px){
+  /* Two rows x two columns: 
+     Row 1: [ About text | Photo ]
+     Row 2: [ Credentials | Stats ]  (stats are inside .about-panel) */
+  #about .container {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    column-gap: 36px;
+    row-gap: 20px;
+    align-items: start;
+  }
+
+  /* Ensure no leftover "order" rules push things down */
+  #about .about-block,
+  #about .about-panel,
+  #about .certs { order: initial !important; }
+
+  /* Top-left: About text panel */
+  #about .about-block {
+    grid-column: 1;
+    grid-row: 1;
+    margin: 0;                    /* remove any accidental top gaps */
+  }
+
+  /* Top-right: Photo (with stats stacked underneath inside the same column) */
+  #about .about-panel {
+    grid-column: 2;
+    grid-row: 1;
+    display: grid;
+    grid-auto-rows: auto;
+    gap: 18px;                    /* spacing between photo and stats */
+    margin: 0;
+  }
+
+  /* Bottom-left: Credentials card */
+  #about .certs {
+    grid-column: 1;
+    grid-row: 2;
+    margin-top: 0;                /* tuck right under the text panel */
+  }
+
+  /* Slightly lift the stats card to mirror your mock */
+  #about .stats {
+    margin-top: 6px;
+  }
+}
+
