@@ -1,69 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Farsh Aquatics - Private Swim Coaching & Lifeguarding</title>
-  <!-- Google Font for a modern, clean look -->
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet" />
-  <!-- Link to external CSS stylesheet -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Farsh Aquatics — Private Swim Coaching & Lifeguarding</title>
+  <meta name="description" content="Farsh Aquatics offers premium private swim coaching and certified lifeguarding by Dina Farshchi. Personalized instruction, safety-first, and a luxury client experience." />
+  <meta name="theme-color" content="#0f4f78" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <nav class="navbar">
-      <div class="logo">Farsh Aquatics</div>
-      <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
-      <ul class="nav-links">
-        <li><a href="#coaching">Coaching</a></li>
-        <li><a href="#lifeguarding">Lifeguarding</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#" class="contact-link">Contact</a></li>
-      </ul>
+
+  <!-- =================== Header / Nav =================== -->
+  <header class="site-header" id="top">
+    <nav class="nav container">
+      <a class="brand" href="#hero" aria-label="Farsh Aquatics">
+        <!-- Minimal placeholder mark -->
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-text">Farsh Aquatics</span>
+      </a>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="navMenu" aria-label="Open menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+
+      <div class="nav-menu" id="navMenu" role="dialog" aria-modal="true" aria-label="Main">
+        <ul>
+          <li><a href="#coaching" data-close>Coaching</a></li>
+          <li><a href="#lifeguarding" data-close>Lifeguarding</a></li>
+          <li><a href="#about" data-close>About</a></li>
+          <li><a href="#" class="contact-open" data-close>Contact</a></li>
+        </ul>
+      </div>
+      <div class="nav-scrim" aria-hidden="true"></div>
     </nav>
   </header>
 
+  <!-- =================== Hero =================== -->
   <section id="hero" class="hero section">
-    <div class="hero-content">
-      <h1>Farsh Aquatics</h1>
-      <p class="tagline">Private Swim Coaching &amp; Lifeguarding Services</p>
-      <button class="contact-button">Contact Us</button>
+    <div class="container hero-inner">
+      <div class="hero-copy reveal">
+        <h1 class="display">Private Swim Coaching & Certified Lifeguarding</h1>
+        <p class="lead">Refined, one-to-one instruction and safety-first coverage by <strong>Dina Farshchi</strong>. Discreet, reliable, and tailored for all ages and levels.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary contact-open" href="#">Contact</a>
+          <a class="btn btn-ghost" href="#coaching">Explore services</a>
+        </div>
+      </div>
+
+      <div class="hero-badges reveal">
+        <div class="badge">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.2L18 21l-6-4-6 4 1.5-7.8L2 9h7z"/></svg>
+          <span>Swim Instruction since 2019</span>
+        </div>
+        <div class="badge">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1a5 5 0 00-5 5v3H5a3 3 0 00-3 3v8a3 3 0 003 3h14a3 3 0 003-3v-8a3 3 0 00-3-3h-2V6a5 5 0 00-5-5zm-3 8V6a3 3 0 116 0v3H9z"/></svg>
+          <span>NLS • CPR-C • First Aid</span>
+        </div>
+        <div class="badge">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4zM2 9h20M8 2h8v3H8z"/></svg>
+          <span>Private-club experience</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-gradient" aria-hidden="true"></div>
+  </section>
+
+  <!-- =================== Services =================== -->
+  <section id="services" class="section">
+    <div class="container">
+      <h2 class="section-title reveal">Services</h2>
+
+      <div class="cards">
+        <!-- Coaching -->
+        <article id="coaching" class="card reveal">
+          <div class="card-header">
+            <div class="icon-circle" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M2 18c3-2 6-3 10-3s7 1 10 3v2c-3-2-6-3-10-3s-7 1-10 3v-2zm10-5a4 4 0 100-8 4 4 0 000 8z"/></svg>
+            </div>
+            <h3>Private Swim Coaching</h3>
+          </div>
+          <p class="card-lead">Personalized, technique-focused lessons for beginners to advanced swimmers—built around your goals and schedule.</p>
+          <ul class="card-list">
+            <li>Stroke mechanics & efficiency (free, back, breast, fly)</li>
+            <li>Water confidence & learn-to-swim for kids and adults</li>
+            <li>Endurance & conditioning; turns and pacing</li>
+            <li>Safety skills & self-rescue awareness</li>
+          </ul>
+          <div class="card-cta">
+            <a href="#" class="btn btn-primary contact-open">Check availability</a>
+          </div>
+        </article>
+
+        <!-- Lifeguarding -->
+        <article id="lifeguarding" class="card reveal">
+          <div class="card-header">
+            <div class="icon-circle" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2l9 5v10l-9 5-9-5V7l9-5zm0 2.2L5 7v8l7 3.8L19 15V7l-7-2.8zM8 12a4 4 0 118 0 4 4 0 01-8 0z"/></svg>
+            </div>
+            <h3>Private Lifeguarding</h3>
+          </div>
+          <p class="card-lead">Discreet coverage for private pools and events. Professional risk awareness and guest-first communication.</p>
+          <ul class="card-list">
+            <li>Pool parties & family gatherings</li>
+            <li>On-site safety brief & area scan</li>
+            <li>Active prevention and vigilant supervision</li>
+            <li>Incident response, documentation, and referrals</li>
+          </ul>
+          <div class="card-cta">
+            <a href="#" class="btn btn-primary contact-open">Request coverage</a>
+          </div>
+        </article>
+      </div>
+
+      <p class="contact-note reveal">Pricing is provided upon request. Please <a href="#" class="contact-open link-underline">contact for rates and scheduling</a>.</p>
     </div>
   </section>
 
-  <section id="coaching" class="section coaching">
-    <div class="section-content">
-      <h2>Private Swim Coaching</h2>
-      <p>One-on-one swim lessons tailored to your needs. Improve technique, confidence, and water safety with personalized coaching for all ages and skill levels.</p>
+  <!-- =================== About =================== -->
+  <section id="about" class="section section-soft">
+    <div class="container grid-about">
+      <div class="about-block reveal">
+        <h2 class="section-title">About Dina Farshchi</h2>
+        <p class="about-lead">Dina is a certified lifeguard and experienced swim instructor with a background in private-club instruction and shift leadership.</p>
+        <p>Since 2019, Dina has coached swimmers across ages and abilities—emphasizing clear communication, technique, and confidence in and around the water. She has served as a <em>Swim Instructor & Shift Supervisor</em> at a private club, coordinating teams and maintaining high service standards.</p>
+        <ul class="about-list">
+          <li><strong>Safety-first:</strong> National Lifeguard (NLS), CPR-C, First Aid</li>
+          <li><strong>Personalized coaching:</strong> goals-based plans, steady progress</li>
+          <li><strong>Client-focused:</strong> attentive, professional, and discreet</li>
+          <li><strong>Languages:</strong> English & Farsi (fluent), Spanish (conversational)</li>
+        </ul>
+
+        <div class="about-cta">
+          <a href="#" class="btn btn-ghost contact-open">Start the conversation</a>
+        </div>
+      </div>
+
+      <div class="about-panel reveal">
+        <div class="glass stats">
+          <div>
+            <span class="stat-number">6+</span>
+            <span class="stat-label">years coaching</span>
+          </div>
+          <div>
+            <span class="stat-number">100%</span>
+            <span class="stat-label">safety-led approach</span>
+          </div>
+          <div>
+            <span class="stat-number">1:1</span>
+            <span class="stat-label">premium sessions</span>
+          </div>
+        </div>
+        <div class="glass certs">
+          <h3 class="certs-title">Credentials</h3>
+          <ul>
+            <li>NLS (National Lifeguard Service)</li>
+            <li>CPR-C & Standard First Aid</li>
+            <li>Private-club Swim Instructor (since 2019)</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section id="lifeguarding" class="section lifeguarding">
-    <div class="section-content">
-      <h2>Private Lifeguarding</h2>
-      <p>Hire a certified lifeguard for your private pool events or parties. Enjoy peace of mind knowing a trained professional is on duty to keep everyone safe.</p>
+  <!-- =================== Final CTA =================== -->
+  <section class="section cta">
+    <div class="container reveal">
+      <h2 class="cta-title">Ready to swim with confidence?</h2>
+      <p class="cta-sub">Get in touch for availability and pricing.</p>
+      <a href="#" class="btn btn-primary btn-lg contact-open">Contact Farsh Aquatics</a>
     </div>
+    <div class="cta-gradient" aria-hidden="true"></div>
   </section>
 
-  <section id="about" class="section about">
-    <div class="section-content">
-      <h2>About Dina Farshchi</h2>
-      <p>Dina Farshchi is the founder of Farsh Aquatics, a certified lifeguard and experienced swim coach. She has been teaching swimming since 2019 and served as a swim instructor and shift supervisor at a private club. Dina focuses on building strong relationships with her clients by offering personalized lessons and addressing individual needs. She is certified in CPR, National Lifeguarding, and First Aid, ensuring the highest safety standards. Dina is fluent in English and Farsi, and conversant in Spanish, allowing her to connect with a diverse range of students.</p>
+  <!-- =================== Footer =================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-text">Farsh Aquatics</span>
+      </div>
+      <ul class="footer-links">
+        <li><a href="#coaching">Coaching</a></li>
+        <li><a href="#lifeguarding">Lifeguarding</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#" class="contact-open">Contact</a></li>
+      </ul>
+      <p class="footnote">© <span id="year"></span> Farsh Aquatics. All rights reserved.</p>
     </div>
-  </section>
+  </footer>
 
-  <!-- Contact Modal -->
-  <div id="contact-modal" class="modal">
-    <div class="modal-content">
-      <span class="modal-close">&times;</span>
-      <h3>Contact Farsh Aquatics</h3>
-      <p>Phone: (778) 345-7712</p>
-      <p>Email: info@farshaquatics.com</p>
-      <p>Please reach out for availability and pricing details.</p>
+  <!-- =================== Contact Modal =================== -->
+  <div class="modal" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="contactTitle" aria-hidden="true">
+    <div class="modal-scrim" data-close-modal aria-hidden="true"></div>
+    <div class="modal-card" role="document">
+      <button class="modal-close" aria-label="Close contact dialog">×</button>
+      <h3 id="contactTitle">Contact Farsh Aquatics</h3>
+      <p class="muted">Availability & pricing are shared upon request.</p>
+
+      <div class="contact-grid">
+        <div class="contact-item">
+          <span class="contact-label">Phone</span>
+          <a class="contact-value" href="tel:+17783457712" id="phoneVal">(778) 345-7712</a>
+          <button class="copy" data-copy="#phoneVal" aria-label="Copy phone">Copy</button>
+        </div>
+        <div class="contact-item">
+          <span class="contact-label">Email</span>
+          <a class="contact-value" href="mailto:info@farshaquatics.com" id="emailVal">info@farshaquatics.com</a>
+          <button class="copy" data-copy="#emailVal" aria-label="Copy email">Copy</button>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <a class="btn btn-primary" href="mailto:info@farshaquatics.com">Email now</a>
+        <a class="btn btn-ghost" href="tel:+17783457712">Call now</a>
+      </div>
     </div>
   </div>
 
-  <!-- Link to external JavaScript file -->
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
