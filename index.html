@@ -161,7 +161,7 @@ header{position:sticky;top:0;z-index:40;background:rgba(47,180,230,.94);backdrop
 .nav{display:flex;align-items:center;gap:22px;padding:12px 0}
 .nav a{color:#fff;text-decoration:none}
 .brand{display:flex;align-items:center;gap:10px;margin-right:auto;font-size:1.15rem}
-.brand svg{width:30px;height:30px;flex:none}
+.brand svg,.brand img{width:34px;height:34px;flex:none;border-radius:50%;background:#fff}
 .nav-links{display:flex;gap:22px;font-weight:700;font-size:.95rem}
 .nav-links a{opacity:.92;padding:4px 2px;border-bottom:2px solid transparent}
 .nav-links a:hover,.nav-links a:focus-visible{opacity:1;border-bottom-color:var(--sun)}
@@ -169,7 +169,7 @@ header{position:sticky;top:0;z-index:40;background:rgba(47,180,230,.94);backdrop
 
 /* ---------- hero ---------- */
 .hero{padding:70px 0 120px;text-align:center;position:relative;overflow:hidden}
-.hero .mark{width:96px;margin:0 auto 18px}
+.hero .mark{width:118px;height:118px;display:block;margin:0 auto 18px;border-radius:50%;background:#fff;box-shadow:0 10px 26px rgba(14,95,132,.22)}
 .hero h1{font-size:clamp(2.9rem,10vw,6.2rem);color:#fff;text-shadow:0 6px 0 rgba(26,158,209,.35)}
 .hero .tag{
   margin:20px 0 30px;color:#fff;font-weight:800;letter-spacing:.34em;
@@ -346,7 +346,7 @@ footer{background:var(--pool);color:#fff;padding:34px 0 40px;position:relative}
 
 <header>
   <div class="wrap nav">
-    <a class="brand bubble" href="#top"><svg viewBox="0 0 100 100" ><use href="#i-badge"/></svg> Farsh Aquatics</a>
+    <a class="brand bubble" href="#top"><img src="logo-whale.png" alt="" width="900" height="900"> Farsh Aquatics</a>
     <nav class="nav-links" aria-label="Sections">
       <a href="#coaching">Coaching</a>
       <a href="#lifeguarding">Lifeguarding</a>
@@ -362,7 +362,7 @@ footer{background:var(--pool);color:#fff;padding:34px 0 40px;position:relative}
 <section class="band band--water hero" id="top">
   <div class="bubbles" data-bubbles="26"></div>
   <div class="wrap">
-    <svg class="mark" viewBox="0 0 100 100" ><use href="#i-badge"/></svg>
+    <img class="mark" src="logo-whale.png" alt="Farsh Aquatics" width="900" height="900">
     <h1 class="bubble">FARSH AQUATICS</h1>
     <div class="tag">Splash · Learn · Repeat</div>
     <div class="hero-card">
